@@ -79,7 +79,23 @@ if [ "$ENABLE_KSU" -eq 1 ]; then
     curl -LSs "https://raw.githubusercontent.com/ReSukiSU/ReSukiSU/main/kernel/setup.sh" | bash
     echo "[+] KernelSU setup finished."
 fi
+# ==========================================
+# NoMount Setup
+# ==========================================
+if [ "$ENABLE_KSU" -eq 1 ]; then
+    echo "==========================================="
+    echo " [*] Initializing NoMount Setup"
+    echo "==========================================="
 
+    # Pin cùng phiên bản kernel subsystem và metamodule
+    NOMOUNT_REF="v2.2.0"
+
+    curl -LSs \
+        "https://raw.githubusercontent.com/maxsteeel/nomount/refs/heads/dev/kernel/setup.sh" \
+        | bash -s "${NOMOUNT_REF}"
+
+    echo "[+] NoMount setup finished."
+fi
 # ==========================================
 # Baseband-guard Setup
 # ==========================================
@@ -211,6 +227,7 @@ build_target() {
             -e KSU \
             -e THREAD_INFO_IN_TASK \
             -e KSU_SUSFS
+            -e NOMOUNT
     fi
 
     # 3. MIUI configurations
@@ -296,7 +313,7 @@ build_target() {
         # 确定 ZIP 文件名
         local KSU_ZIP_STR="NoKernelSU"
         if [ "$ENABLE_KSU" -eq 1 ]; then
-            KSU_ZIP_STR="ReSukiSU-SuSFS"
+            KSU_ZIP_STR="ReSukiSU-SuSFS-NoMount"
         fi
         local GIT_COMMIT_ID=$(git rev-parse --short=8 HEAD 2>/dev/null || echo "unknown")
         local OS_UPPER=$(echo "$OS_TYPE" | tr '[:lower:]' '[:upper:]')
