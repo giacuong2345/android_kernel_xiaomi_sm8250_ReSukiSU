@@ -40,7 +40,9 @@ This repository is based on [LineageOS/android_kernel_qcom_sm8250](https://githu
 5. 引入 [LE9EC](https://github.com/hakavlad/le9-patch) 以优化内存  
 6. 向后移植 5.10 的 Binder，MIUI 构建引入来自 xaga 的 millet，AOSP 构建引入 [Re:Kernel](https://github.com/Sakion-Team/Re-Kernel)  
 7. 修复[电量卡在 1% 的问题](https://github.com/liyafe1997/Xiaomi-fix-battery-one-percent)，并且支持解容  
-8. 集成 [BBG(Baseband-guard)](https://github.com/vc-teahouse/Baseband-guard)    
+8. 集成 [BBG(Baseband-guard)](https://github.com/vc-teahouse/Baseband-guard)
+9. 集成 [NoMount]
+(https://github.com/maxsteeel/nomount/tree/master)  
 
 **English:**  
 This kernel supports [ReSukiSU](https://github.com/ReSukiSU/ReSukiSU) & [SuSFS](https://gitlab.com/simonpunk/susfs4ksu).  
@@ -59,6 +61,8 @@ Below are some of the key features:
 6. Backported Binder from 5.10; MIUI builds incorporate millet from xaga, while AOSP builds incorporate [Re:Kernel](https://github.com/Sakion-Team/Re-Kernel)  
 7. Fixes [the issue where the battery percentage gets stuck at 1%](https://github.com/liyafe1997/Xiaomi-fix-battery-one-percent), and supports recognizing higher-capacity replacement batteries  
 8. Integrate [BBG(Baseband-guard)](https://github.com/vc-teahouse/Baseband-guard)  
+9. Integrate [NoMount]
+(https://github.com/maxsteeel/nomount/tree/master)
 
 ---
 
